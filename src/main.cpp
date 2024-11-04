@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "AdjacencyList.h"
 
 using namespace std;
@@ -9,11 +8,16 @@ int main() {
     string from, to;
     cin >> no_of_lines;
     cin >> power_iterations;
+    AdjacencyList graph(power_iterations);
+
     for (int i = 0; i < no_of_lines; i++) {
         cin >> from;
         cin >> to;
-        // Do Something
+        graph.addVertex(from, to);
     }
-    //Create a graph object
-    // Created_Graph.PageRank(power_iterations);}
+
+    string answer;
+    graph.calculateRanks();
+    answer = graph.pageRank();
+    cout << answer << endl;
 }
